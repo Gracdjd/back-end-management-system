@@ -5,8 +5,7 @@ import path from 'path'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { UserConfigExport, ConfigEnv } from 'vite'
 import { viteMockServe } from 'vite-plugin-mock'
-export default defineConfig(({command})=>
-{
+export default defineConfig(({ command }) => {
   return {
     plugins: [
       vue(),
@@ -17,8 +16,8 @@ export default defineConfig(({command})=>
         symbolId: 'icon-[dir]-[name]',
       }),
       viteMockServe({
-        mockPath:'mock',
-        enable: command === 'serve'
+        mockPath: 'mock',
+        enable: command === 'serve',
       }),
     ],
     resolve: {
@@ -34,6 +33,5 @@ export default defineConfig(({command})=>
         },
       },
     },
-    
   }
 })

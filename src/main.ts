@@ -9,7 +9,8 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'virtual:svg-icons-register'
 import globalComponent from '@/components/index.ts'
 import router from './routers'
-// console.log(globalComponent)
+
+import '@/styles/index.scss'
 
 const app = createApp(App)
 app.use(ElementPlus, {
@@ -19,4 +20,4 @@ app.use(globalComponent)
 app.use(router)
 app.mount('#app')
 
-console.log(import.meta.env)
+// console.log(import.meta.env)

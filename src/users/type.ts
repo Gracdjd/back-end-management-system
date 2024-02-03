@@ -1,5 +1,5 @@
 export interface loginFormData {
-  username: string,
+  username: string
   password: string
 }
 
@@ -8,29 +8,28 @@ interface dataType {
 }
 
 export interface loginResponseData {
-  code: number,
+  code: number
   data: dataType
 }
 
 interface userInfo {
-  userId: number,
-  avatar: string,
-  username: string,
-  password: string,
-  desc: string,
-  roles: string[],
-  buttons: string[],
-  routes: string[],
+  userId: number
+  avatar: string
+  username: string
+  password: string
+  desc: string
+  roles: string[]
+  buttons: string[]
+  routes: string[]
   token: string
 }
 
-
 //服务器返回用户信息相关的数据类型
-interface user{
-  checkUser:userInfo
+interface user {
+  checkUser: userInfo
 }
 
-export interface userInfoReponseData{
-  code: number,
+export interface userInfoReponseData {
+  code: number
   data: user
 }
