@@ -11,12 +11,13 @@ import type {
 //项目用户相关的请求地址
 
 enum API {
-  LOGIN_URL = '/admin/acl/index/login',
+  LOGIN_URL = '/user/login',
 
-  USERINFO_URL = '/admin/acl/index/info',
+  USERINFO_URL = '/user/info',
 
-  LOGOUT_URL = '/admin/acl/index/logout',
+  LOGOUT_URL = '/user/logout',
 }
+
 //登录接口
 export const reqLogin = (data: loginFormData) =>
   request.post<any, loginResponseData>(API.LOGIN_URL, data)

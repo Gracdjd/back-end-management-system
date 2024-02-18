@@ -1,4 +1,5 @@
 //用户信息数据
+//函数执行返回一个数组
 function createUserList() {
   return [
     {
