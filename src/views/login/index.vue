@@ -3,10 +3,15 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form class="login_form">
+        <el-form
+          class="login_form"
+          :model="loginForm"
+          :rules="rules"
+          ref="loginForms"
+        >
           <h1>HELLO</h1>
           <h2>欢迎来到硅谷甄选</h2>
-          <el-form-item>
+          <el-form-item prop="username">
             <el-input
               placeholder="admin"
               v-model="loginForm.username"
@@ -14,7 +19,7 @@
             ></el-input>
           </el-form-item>
 
-          <el-form-item>
+          <el-form-item prop="password">
             <el-input
               type="password"
               v-model="loginForm.password"
@@ -45,22 +50,26 @@ import { User, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 import useUserStore from '@/store/moudles/users'
 import { useRouter } from 'vue-router'
-import { ElNotification } from 'element-plus'
+import { ElNotification, FormRules } from 'element-plus'
+import { getTime } from '@/utils/time'
 
 let router = useRouter()
 let loading = ref(false)
 let userStore = useUserStore()
 
 let loginForm = reactive({ username: '', password: '' })
+let loginForms = ref()
 
 let login = async () => {
+  await loginForms.value.validate()
   try {
     loading.value = true
     await userStore.userLogin(loginForm)
     router.push('/')
     ElNotification({
       type: 'success',
-      message: '登录成功',
+      message: '欢迎回来',
+      title: getTime(),
     })
     loading.value = false
   } catch (error) {
@@ -71,6 +80,22 @@ let login = async () => {
     })
   }
 }
+
+const rules = reactive<FormRules>({
+  username: [
+    { required: true, message: '用户名不能为空', trigger: 'change' },
+    { min: 3, max: 8, message: '长度 3-8', trigger: 'change' },
+  ],
+  password: [
+    {
+      required: true,
+      min: 3,
+      max: 10,
+      message: '长度 3- 10',
+      trigger: 'change',
+    },
+  ],
+})
 </script>
 <style scoped lang="scss">
 .login_container {
