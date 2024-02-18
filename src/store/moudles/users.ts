@@ -6,9 +6,9 @@ import { type UserState } from './types/type'
 import { SET_TOKEN, GET_TOKEN } from '@/utils/token'
 
 let useUserStore = defineStore('User', {
-  state: ():UserState => {
+  state: (): UserState => {
     return {
-      token: GET_TOKEN("User Token"),
+      token: GET_TOKEN('User Token'),
     }
   },
   actions: {
@@ -17,9 +17,9 @@ let useUserStore = defineStore('User', {
       let result: loginResponseData = await reqLogin(data)
 
       if (result.code == 200) {
-        this.token = (result.data.token as string)
+        this.token = result.data.token as string
         SET_TOKEN(`User Token`, this.token)
-        return "ok"
+        return 'ok'
       } else {
         return Promise.reject(new Error(result.data.message))
       }
