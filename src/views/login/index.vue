@@ -81,10 +81,20 @@ let login = async () => {
   }
 }
 
+const validatorUsername = (_rule: any, value: string, callback: any) => {
+  // console.log(rule)
+
+  if (value.length >= 3) {
+    callback()
+  } else {
+    callback(new Error('账号长度至少5位'))
+  }
+}
 const rules = reactive<FormRules>({
   username: [
-    { required: true, message: '用户名不能为空', trigger: 'change' },
-    { min: 3, max: 8, message: '长度 3-8', trigger: 'change' },
+    // { required: true, message: '用户名不能为空', trigger: 'change' },
+    // { min: 3, max: 8, message: '长度 3-8', trigger: 'change' },
+    { validator: validatorUsername, trigger: 'change' },
   ],
   password: [
     {
