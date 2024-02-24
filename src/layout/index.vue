@@ -12,7 +12,7 @@
     </div>
     <div class="layout_bar"></div>
     <div class="layout_main">
-      <p style="height: 10000px">111</p>
+      <Main></Main>
     </div>
   </div>
 </template>
@@ -21,6 +21,8 @@
 import Logo from './logo/index.vue'
 import Menu from './menu/index.vue'
 import useUserStore from '@/store/moudles/users'
+import Main from '@/layout/main/index.vue'
+
 let userStore = useUserStore()
 </script>
 

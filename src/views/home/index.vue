@@ -1,4 +1,3 @@
-<
 <template>
   <div>
     <h1>一级路由 home</h1>
