@@ -6,12 +6,11 @@ import { type UserState } from './types/type'
 import { SET_TOKEN, GET_TOKEN } from '@/utils/token'
 import { constantRouter } from '@/routers/routers'
 
-
 let useUserStore = defineStore('User', {
   state: (): UserState => {
     return {
       token: GET_TOKEN('User Token'),
-      menuRouters: constantRouter
+      menuRouters: constantRouter,
     }
   },
   actions: {

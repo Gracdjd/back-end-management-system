@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import Logo from './logo/index.vue'
 import Menu from './menu/index.vue'
-import useUserStore from '@/store/moudles/users';
+import useUserStore from '@/store/moudles/users'
 let userStore = useUserStore()
 </script>
 
@@ -28,16 +28,18 @@ let userStore = useUserStore()
 .layout_container {
   width: 100%;
   height: 100vh;
-  background-color: red;
+  background-color: green;
   .layout_slider {
     color: white;
     width: $base-menu-width;
     height: 100vh;
     background-color: $base-menu-background;
-    .scrollbar{
+    .scrollbar {
       width: 100%;
       height: calc(100vh - $base-menu-log-height);
-      border-right: none;
+      .el-menu {
+        border-right: none;
+      }
     }
   }
   .layout_bar {
