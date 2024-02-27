@@ -12,6 +12,6 @@ export default {
     for (const [key, component] of Object.entries(ElementPlusIcons)) {
       app.component(key, component)
     }
-    app.component('Menu', Menu)
+    app.component('MyMenu', Menu)
   },
 }

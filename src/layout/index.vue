@@ -5,12 +5,19 @@
       <!-- 滚动条 -->
       <el-scrollbar class="scrollbar">
         <!-- 菜单组件 -->
-        <el-menu background-color="#001529" text-color="white">
-          <Menu :menuList="userStore.menuRouters"></Menu>
+        <el-menu
+          :default-active="route.path"
+          background-color="#001529"
+          text-color="white"
+          active-text-color="yellow"
+        >
+          <MyMenu :menuList="userStore.menuRouters"></MyMenu>
         </el-menu>
       </el-scrollbar>
     </div>
-    <div class="layout_bar"></div>
+    <div class="layout_bar">
+      <Tabbar></Tabbar>
+    </div>
     <div class="layout_main">
       <Main></Main>
     </div>
@@ -19,9 +26,14 @@
 
 <script setup lang="ts">
 import Logo from './logo/index.vue'
-import Menu from './menu/index.vue'
+
 import useUserStore from '@/store/moudles/users'
 import Main from '@/layout/main/index.vue'
+
+import { useRoute } from 'vue-router'
+
+import Tabbar from '@/layout/tabbar/index.vue'
+let route = useRoute()
 
 let userStore = useUserStore()
 </script>
@@ -30,7 +42,6 @@ let userStore = useUserStore()
 .layout_container {
   width: 100%;
   height: 100vh;
-  background-color: green;
   .layout_slider {
     color: white;
     width: $base-menu-width;
