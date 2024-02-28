@@ -8,6 +8,9 @@
 
 <script setup lang="ts">
 import setting from '@/setting'
+defineOptions({
+  name: 'MyLogo'
+})
 </script>
 
 <style scoped lang="scss">
@@ -20,7 +23,7 @@ import setting from '@/setting'
   img {
     width: 40px;
     height: 40px;
-    margin-left: 10px;
+    margin-left: 5px;
   }
   p {
     font-size: $base-menu-log-font;

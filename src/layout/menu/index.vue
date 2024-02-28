@@ -45,12 +45,18 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: 'MyMenu'
+})
 defineProps(['menuList'])
 import { useRouter } from 'vue-router'
+
 let router = useRouter()
 function goRoute(vc: any) {
   router.push(vc.index)
 }
+
+
 </script>
 
 <style scoped lang="scss"></style>

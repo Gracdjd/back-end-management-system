@@ -12,6 +12,9 @@
 <script setup lang="ts">
 import Breadcrumb from './breadcrumb/index.vue'
 import Setting from './setting/index.vue'
+defineOptions({
+  name: 'MyTabber'
+})
 </script>
 
 <style scoped lang="scss">

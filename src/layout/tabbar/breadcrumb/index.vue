@@ -1,6 +1,6 @@
 <template>
-  <el-icon style="margin-right: 10px">
-    <Expand />
+  <el-icon style="margin-right: 10px" @click="changeIcon">
+    <component :is="layoutSettingStore.fold ? 'Fold' : 'Expand'"></component>
   </el-icon>
 
   <el-breadcrumb separator-icon="ArrowRight">
@@ -9,6 +9,18 @@
   </el-breadcrumb>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// import { ref } from 'vue';
+import useLayoutSettingStore from '@/store/moudles/setting';
+let layoutSettingStore = useLayoutSettingStore()
+
+function changeIcon(){
+  layoutSettingStore.fold = !layoutSettingStore.fold
+}
+
+defineOptions({
+  name: 'MyBreadcrumb'
+})
+</script>
 
 <style scoped></style>

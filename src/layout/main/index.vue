@@ -8,6 +8,10 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineOptions({
+  name: 'MyMain'
+})
+</script>
 
 <style scoped lang="scss"></style>

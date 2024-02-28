@@ -5,7 +5,7 @@
   <img src="/logo.png" style="width: 24px; height: 24px; margin: 0px 10px" />
   <el-dropdown>
     <span class="el-dropdown-link">
-      Dropdown List
+      <span>admin</span>
       <el-icon class="el-icon--right">
         <arrow-down />
       </el-icon>
@@ -18,6 +18,10 @@
   </el-dropdown>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineOptions({
+  name: 'MySetting'
+})
+</script>
 
 <style scoped></style>

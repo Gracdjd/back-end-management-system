@@ -1,7 +1,6 @@
 import SvgIcon from './SvgIcons/index.vue'
 // const x = ''
 import * as ElementPlusIcons from '@element-plus/icons-vue'
-import Menu from '@/layout/menu/index.vue'
 
 const allGlobalComponents: any = { SvgIcon: SvgIcon }
 export default {
@@ -12,6 +11,5 @@ export default {
     for (const [key, component] of Object.entries(ElementPlusIcons)) {
       app.component(key, component)
     }
-    app.component('MyMenu', Menu)
   },
 }
