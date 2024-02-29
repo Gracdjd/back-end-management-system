@@ -4,22 +4,28 @@
   </el-icon>
 
   <el-breadcrumb separator-icon="ArrowRight">
-    <el-breadcrumb-item>权限管理</el-breadcrumb-item>
-    <el-breadcrumb-item>用户管理</el-breadcrumb-item>
+    <!-- //v-if优先级大于v-for -->
+    <el-breadcrumb-item v-for="(item, index) in route.matched" :key="index" v-show="!item.meta.hidden" :to="item.path">
+      <el-icon >
+        <component :is="item.meta.icon"></component>
+      </el-icon>
+      <span style="margin: 0px 5px;">{{ item.meta.title }}</span>
+    </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
 <script setup lang="ts">
 // import { ref } from 'vue';
-import useLayoutSettingStore from '@/store/moudles/setting';
+import useLayoutSettingStore from '@/store/moudles/setting'
+import { useRoute } from 'vue-router';
 let layoutSettingStore = useLayoutSettingStore()
-
-function changeIcon(){
+let route = useRoute()
+function changeIcon() {
   layoutSettingStore.fold = !layoutSettingStore.fold
 }
 
 defineOptions({
-  name: 'MyBreadcrumb'
+  name: 'MyBreadcrumb',
 })
 </script>
 

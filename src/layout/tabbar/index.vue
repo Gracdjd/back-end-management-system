@@ -13,7 +13,7 @@
 import Breadcrumb from './breadcrumb/index.vue'
 import Setting from './setting/index.vue'
 defineOptions({
-  name: 'MyTabber'
+  name: 'MyTabber',
 })
 </script>
 

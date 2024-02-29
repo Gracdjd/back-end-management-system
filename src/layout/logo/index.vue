@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import setting from '@/setting'
 defineOptions({
-  name: 'MyLogo'
+  name: 'MyLogo',
 })
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <el-button size="small" icon="Refresh" circle></el-button>
+  <el-button size="small" icon="Refresh" circle @click="refresh"></el-button>
   <el-button size="small" icon="FullScreen" circle></el-button>
   <el-button size="small" icon="Setting" circle></el-button>
   <img src="/logo.png" style="width: 24px; height: 24px; margin: 0px 10px" />
@@ -20,8 +20,15 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: 'MySetting'
+  name: 'MySetting',
 })
+
+import useLayoutSettingStore from '@/store/moudles/setting';
+let layoutSettingStore = useLayoutSettingStore()
+
+const refresh = ()=>{  
+  layoutSettingStore.refsh = !layoutSettingStore.refsh
+}
 </script>
 
 <style scoped></style>
