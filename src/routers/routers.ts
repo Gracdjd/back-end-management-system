@@ -102,8 +102,7 @@ export const constantRouter = [
       hidden: false,
       icon: 'Goods',
     },
-    redirect: '/product/tradmark'
-    ,
+    redirect: '/product/tradmark',
     children: [
       {
         path: '/product/tradmark',
