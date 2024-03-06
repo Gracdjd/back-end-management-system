@@ -2,7 +2,7 @@
   <div>
     <router-view v-slot="{ Component }">
       <transition name="fade">
-        <component :is="Component" v-if="flag" />
+        <div><component :is="Component" /></div>
       </transition>
     </router-view>
   </div>
@@ -29,4 +29,8 @@ watch(
 )
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.fade-enter-active {
+  transition: all 1s;
+}
+</style>

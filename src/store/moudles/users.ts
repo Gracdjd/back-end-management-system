@@ -1,6 +1,6 @@
 //创建用户相关小仓库
 import { defineStore } from 'pinia'
-import { reqLogin } from '@/users'
+import { reqLogin, reqUserInfo } from '@/users'
 import { type loginFormData, type loginResponseData } from '@/users/type'
 import { type UserState } from './types/type'
 import { SET_TOKEN, GET_TOKEN } from '@/utils/token'
@@ -11,10 +11,13 @@ let useUserStore = defineStore('User', {
     return {
       token: GET_TOKEN('User Token'),
       menuRouters: constantRouter,
+      username: '',
+      avatar: '',
     }
   },
   actions: {
     async userLogin(data: loginFormData) {
+      'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
       //登录请求
       let result: loginResponseData = await reqLogin(data)
 
@@ -24,6 +27,14 @@ let useUserStore = defineStore('User', {
         return 'ok'
       } else {
         return Promise.reject(new Error(result.data.message))
+      }
+    },
+    async userInfo() {
+      let res = await reqUserInfo()
+      if (res.code === 200) {
+        this.username = res.data.checkUser.username
+        this.avatar = res.data.checkUser.avatar
+      } else {
       }
     },
   },

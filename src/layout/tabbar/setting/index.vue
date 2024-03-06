@@ -7,10 +7,13 @@
     @click="fullScreen"
   ></el-button>
   <el-button size="small" icon="Setting" circle></el-button>
-  <img src="/logo.png" style="width: 24px; height: 24px; margin: 0px 10px" />
+  <img
+    :src="userStore.avatar"
+    style="width: 24px; height: 24px; margin: 0px 10px; border-radius: 50%"
+  />
   <el-dropdown>
     <span class="el-dropdown-link">
-      <span>admin</span>
+      <span>{{ userStore.username }}</span>
       <el-icon class="el-icon--right">
         <arrow-down />
       </el-icon>
@@ -29,8 +32,9 @@ defineOptions({
 })
 
 import useLayoutSettingStore from '@/store/moudles/setting'
+import useUserStore from '@/store/moudles/users'
 let layoutSettingStore = useLayoutSettingStore()
-
+let userStore = useUserStore()
 const refresh = () => {
   layoutSettingStore.refsh = !layoutSettingStore.refsh
 }
