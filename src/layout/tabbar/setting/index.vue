@@ -20,7 +20,7 @@
     </span>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item>退出登录</el-dropdown-item>
+        <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
@@ -33,8 +33,12 @@ defineOptions({
 
 import useLayoutSettingStore from '@/store/moudles/setting'
 import useUserStore from '@/store/moudles/users'
+import { useRoute, useRouter } from 'vue-router'
+
 let layoutSettingStore = useLayoutSettingStore()
 let userStore = useUserStore()
+let router = useRouter()
+let route = useRoute()
 const refresh = () => {
   layoutSettingStore.refsh = !layoutSettingStore.refsh
 }
@@ -46,6 +50,14 @@ const fullScreen = () => {
   } else {
     document.exitFullscreen()
   }
+}
+
+let logout = () => {
+  //向服务器发送token无效
+  //仓库中关于用户相关数据清空掉
+  //3跳转到登录页面
+  userStore.userLogout()
+  router.push({ path: '/login', query: { redirect: route.path } })
 }
 </script>
 

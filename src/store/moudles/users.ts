@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { reqLogin, reqUserInfo } from '@/users'
 import { type loginFormData, type loginResponseData } from '@/users/type'
 import { type UserState } from './types/type'
-import { SET_TOKEN, GET_TOKEN } from '@/utils/token'
+import { SET_TOKEN, GET_TOKEN, CLEAR_TOKEN } from '@/utils/token'
 import { constantRouter } from '@/routers/routers'
 
 let useUserStore = defineStore('User', {
@@ -36,6 +36,13 @@ let useUserStore = defineStore('User', {
         this.avatar = res.data.checkUser.avatar
       } else {
       }
+    },
+    userLogout() {
+      //mock接口退出登录
+      this.token = ''
+      this.username = ''
+      this.avatar = ''
+      CLEAR_TOKEN('User Token')
     },
   },
   getters: {},
